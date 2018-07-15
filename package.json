@@ -1,0 +1,23 @@
+{
+  "name": "ngmarket",
+  "version": "1.0.0",
+  "description": "ngMarket",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev-1995/ngMarket.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dev-1995/ngMarket/issues"
+  },
+  "homepage": "https://github.com/dev-1995/ngMarket#readme",
+  "dependencies": {
+    "angular": "^1.7.2",
+    "angular-ui-router": "^1.0.18"
+  }
+}

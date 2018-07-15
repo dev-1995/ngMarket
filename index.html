@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="marketApp" >
+<head>
+	<title>ngMarket Home</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+	  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-controller="mainCtrl" ng-init="getResult()"  >
+<nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">ngMarket</a>
+       
+    </div>
+  </nav>
+ <div class="row">
+	
+	<!-- <a href=""></a> -->
+	<ui-view></ui-view>
+	
+</div>
+<script src="/node_modules/angular/angular.js"></script>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+<script src="scripts/app.js"></script>
+<script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="components/main.ctrl.js"></script>
+<script>
+	 $(document).ready(function(){
+    $('select').formSelect();
+  });
+        
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<div class="clearfix"></div>
+	 
+	<div class="col s8 offset-s2">
+		<a ui-sref="currencyTable" class="waves-effect waves-light btn"><i class="material-icons left">home</i>Home</a>
+		<br>
+		<h1><b>{{ currencyData.name }}</b><small>({{ currencyData.symbol }})</small></h1>
+		<h3>{{ (currencyData.quotes.USD.price | currency:"$":0 )+" USD" }}</h3>
+		<span class="titleText"><i class=" small material-icons">insert_chart</i>
+			<span class="rank"> Rank {{ currencyData.rank }} </span>  </span>
+	<div class="clearfix"></div>
+	<table>
+		<thead>
+			<th>Market Cap</th>
+			<th>Volume (24h)</th>
+			<th>Cirulating Supply</th>
+			<th>Max Supply</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{ (currencyData.quotes.USD.market_cap | currency:"$":0 )+" USD" }}</td>
+				<td>{{ (currencyData.quotes.USD.volume_24h | currency:"$":0 )+" USD" }}</td>
+				<td>{{ (currencyData.circulating_supply |  currency:"":0 )+" "+currencyData.symbol }}</td>
+				<td>{{ currencyData.max_supply ?  (currencyData.max_supply | currency:"":0 )+" "+currencyData.symbol : "" }}</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>

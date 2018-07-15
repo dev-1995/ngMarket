@@ -1,0 +1,53 @@
+	<div  >
+ 		<div class="input-field col s2 offset-s2">
+    <select  ng-change="getResult(currency)" ng-model="currency" >
+    	<option value="INR">INR</option>
+    	<option value="USD">USD</option>
+    	<option value="EUR">EUR</option>
+      <!-- <option value="{{ currency }}" ng-repeat="currency in currencyArr">{{ currency }}</option> -->
+      
+    </select>
+    <label>Currency</label>
+  </div>
+  <div class="col s1 valign-wrapper">   <a ng-click="getResult(currency)" ng-model="currency" class="btn-floating btn-small waves-effect waves-light teal"><i class="material-icons">autorenew</i></a>
+
+</div>
+  <div class="clearfix"></div>
+	<div class="col s8 offset-s2">
+
+			<table class="coinTable">
+			<thead>
+				<th>#</th>
+				<th>Name</th>
+				<th>Market Cap</th>
+				<th>Price</th>
+				<th>Volume(24h)</th>
+				<th>Circulating Supply</th>
+				<th>Notes</th>
+			</thead>
+			<tbody>
+			 	
+					<tr ng-click="toggleHome()" ng-model="coinList"   ng-repeat="coin in coinList" class="hoverable">
+					<td>{{ $index+1 }}</td>
+					<td ui-sref="currencyDetail({id:coin.id,currency:coin.symbol})" class="url">{{ coin.name }}</td>
+					<td>{{ coin.quotes.INR ? ( coin.quotes.INR.market_cap | currency:"₹":0) :
+					 (coin.quotes.EUR ? (coin.quotes.EUR.market_cap | currency:"€":0) : 
+					(coin.quotes.USD.market_cap | currency:"$":0)
+					 )}} </td>
+						<td>{{ coin.quotes.INR ? ( coin.quotes.INR.price | currency:"₹":2) :
+					 (coin.quotes.EUR ? (coin.quotes.EUR.price | currency:"€":2) : 
+					(coin.quotes.USD.price | currency:"$":2)
+					 )}} </td>
+					<td>{{ coin.quotes.INR ? ( coin.quotes.INR.volume_24h | currency:"₹":0) :
+					 (coin.quotes.EUR ? (coin.quotes.EUR.volume_24h | currency:"€":0) : 
+					(coin.quotes.USD.volume_24h | currency:"$":0)
+					 )}} </td>
+					<td>{{ (coin.circulating_supply | currency:"")+" "+coin.symbol}}</td>
+					<td><input type="text" id="note_{{ coin.id }}" value="{{ getValue('note_'+coin.id) }}" ng-blur="saveNote($event)"></td>
+				 
+				</tr>
+		 
+			</tbody>
+		</table>
+	</div>
+ 	</div>
